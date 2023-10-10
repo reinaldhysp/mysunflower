@@ -37,6 +37,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -55,6 +57,8 @@ import com.google.samples.apps.sunflower.compose.garden.GardenScreen
 import com.google.samples.apps.sunflower.compose.plantlist.PlantListScreen
 import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.ui.SunflowerTheme
+import com.google.samples.apps.sunflower.ui.my_color_secondary
+import com.google.samples.apps.sunflower.ui.my_color_tertiary
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModel
 import kotlinx.coroutines.launch
 
@@ -110,7 +114,13 @@ fun HomePagerScreen(
 
         // Tab Row
         TabRow(
-            selectedTabIndex = pagerState.currentPage
+            selectedTabIndex = pagerState.currentPage,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    color = my_color_secondary,
+                    modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
+                )
+            }
         ) {
             pages.forEachIndexed { index, page ->
                 val title = stringResource(id = page.titleResId)
@@ -124,6 +134,7 @@ fun HomePagerScreen(
                             contentDescription = title
                         )
                     },
+                    selectedContentColor = my_color_secondary,
                     unselectedContentColor = MaterialTheme.colorScheme.secondary
                 )
             }
@@ -131,7 +142,7 @@ fun HomePagerScreen(
 
         // Pages
         HorizontalPager(
-            modifier = Modifier.background(MaterialTheme.colorScheme.background),
+            modifier = Modifier.background(my_color_tertiary),
             pageCount = pages.size,
             state = pagerState,
             verticalAlignment = Alignment.Top

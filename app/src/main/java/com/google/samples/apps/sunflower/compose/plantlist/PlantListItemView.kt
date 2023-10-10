@@ -39,6 +39,7 @@ import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.utils.SunflowerImage
 import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.data.UnsplashPhoto
+import com.google.samples.apps.sunflower.ui.my_color_primary
 
 @Composable
 fun PlantListItem(plant: Plant, onClick: () -> Unit) {
@@ -56,7 +57,7 @@ fun ImageListItem(name: String, imageUrl: String, onClick: () -> Unit) {
     Card(
         onClick = onClick,
         shape = RoundedCornerShape(32.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+        colors = CardDefaults.cardColors(containerColor = my_color_primary),
         modifier = Modifier
             .padding(horizontal = dimensionResource(id = R.dimen.card_side_margin))
             .padding(bottom = dimensionResource(id = R.dimen.card_bottom_margin))

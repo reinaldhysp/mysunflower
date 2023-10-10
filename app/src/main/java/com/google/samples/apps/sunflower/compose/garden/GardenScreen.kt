@@ -55,6 +55,7 @@ import com.google.samples.apps.sunflower.data.GardenPlanting
 import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.data.PlantAndGardenPlantings
 import com.google.samples.apps.sunflower.ui.SunflowerTheme
+import com.google.samples.apps.sunflower.ui.my_color_primary
 import com.google.samples.apps.sunflower.viewmodels.GardenPlantingListViewModel
 import com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel
 import java.util.*
@@ -137,7 +138,7 @@ private fun GardenListItem(
             end = cardSideMargin,
             bottom = dimensionResource(id = R.dimen.card_bottom_margin)
         ),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+        colors = CardDefaults.cardColors(containerColor = my_color_primary),
         shape = RoundedCornerShape(32.dp)
     ) {
         Column(Modifier.fillMaxWidth()) {
